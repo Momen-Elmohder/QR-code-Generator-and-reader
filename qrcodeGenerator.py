@@ -1,5 +1,11 @@
+import os
 import qrcode
 
-qrcodeImg = qrcode.make('OOP Class')
+os.makedirs("QRImages", exist_ok=True)
 
-qrcodeImg.save('QRImages/OOP-QRcode.png')
+class_name = "Data Structure"
+session_id = "1234-5678"
+data = f"{class_name} - Session ID: {session_id}"
+
+qrcodeImg = qrcode.make(data)
+qrcodeImg.save(f'QRImages/{class_name}-QRcode.png')
